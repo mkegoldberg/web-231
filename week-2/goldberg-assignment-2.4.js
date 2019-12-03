@@ -56,8 +56,7 @@ function convertToFloat(string) {
 console.log(header.display("Mike", "Goldberg", "2.4"));
 console.log(`Hello, my name is ${myName}!`);
 console.log(`Today's date is ${date} and the current temperature is ${temp} degrees.`);
-console.log(`I am ${age} years old and my savings account goal is ${savingsGoal} dollars.
-`)
+console.log(`I am ${age} years old and my savings account goal is ${savingsGoal} dollars.`)
 
 
 
