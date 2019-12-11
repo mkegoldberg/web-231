@@ -25,9 +25,11 @@ const header = require('../goldberg-header.js');
 */
 
 // variable declaration
-let eventKeyCode = 13
+let eventKeyCode = 13;
 
-// functions
+
+// output
+console.log(header.display("Mike", "Goldberg", "assignment 3.2"), "\n");
 switch (eventKeyCode) {
   case 13:
     console.log("The enter key was pressed.");
@@ -45,9 +47,6 @@ switch (eventKeyCode) {
     console.log("Unrecognized key.")
     break;
 }
-
-// output
-console.log(header.display("Mike", "Goldberg", "assignment 3.2"), "\n");
 
 // end program
 
