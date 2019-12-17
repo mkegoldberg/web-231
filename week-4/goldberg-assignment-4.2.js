@@ -32,7 +32,7 @@ function getFruit(list) {
 }
 
 // output
-console.log(header.display("Mike", "Goldberg", "assignment 3.2"), "\n");
+console.log(header.display("Mike", "Goldberg", "assignment 4.2"), "\n");
 getFruit(fruits);
 
 
