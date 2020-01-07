@@ -51,8 +51,6 @@ function printNames(array) {
 
 // output
 console.log(header.display("Mike", "Goldberg", "assignment 4.4"), "\n");
-// new line
-console.log("");
 
 console.log("-- ORIGINAL ARRAY --");
 printNames(states);
