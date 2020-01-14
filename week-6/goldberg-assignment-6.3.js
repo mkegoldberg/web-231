@@ -27,7 +27,7 @@ var ticket = {
 var logArray = [];
 
 // output
-console.log(header.display("Mike", "Goldberg", "assignment 6.2"), "\n");
+console.log(header.display("Mike", "Goldberg", "assignment 6.3"), "\n");
 
 // loop through object
 for (var item in ticket) {
