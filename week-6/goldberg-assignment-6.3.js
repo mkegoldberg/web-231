@@ -4,7 +4,7 @@
 ; Author: Mike Goldberg
 ; Date: 01/13/2020
 ; Modified By: Mike Goldberg
-; Description: Exception Handling
+; Description: Object Literals
 ;===========================================
 */
 // Require statement that imports the header.js file from my root directory.
