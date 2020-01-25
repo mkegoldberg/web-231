@@ -1,0 +1,63 @@
+<!--
+============================================
+; Title: Assignment 7.3
+; Author: Mike Goldberg
+; Date: 01/24/2020
+; Modified By: Mike Goldberg
+; Description: Inline JavaScript Functions
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 7.3</title>
+
+  <link rel="stylesheet" href="../site.css">
+  <style>
+    h1 {
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+<h1>Shopping List - v1</h1>
+<ol id="list">
+  <script>
+    var groceries = ["apples", "bananas", "cereal", "milk", "bread"];
+    groceries.forEach((item) => {
+      document.write(`<li>${item}</li>`);
+    })
+  </script>
+</ol>
+<h1>Shopping List - v1</h1>
+<table id="table"></table>
+<script>
+  var groceries = ["apples", "bananas", "cereal", "milk", "bread"];
+
+  // function that creates a table row for each item an array
+  function generateTable(array) {
+    var table = document.getElementById("table");
+    var tableBody = [];
+    table.innerHTML = "<thead><tr><th>Id</th><th>Item</th></tr></thead>";
+
+    // Make an array of table rows containing id and grocery item
+    var id = 0;
+    array.forEach((item) => {
+      id++;
+      tableBody.push(`<tr><td>${id}</td><td>${item}</td></tr>`);
+    });
+    // combine rows into a single string
+    var combined = tableBody.join("");
+    console.log(combined);
+    // insert string into table
+    table.insertAdjacentHTML("beforeend", combined);
+  }
+
+  // run function
+  generateTable(groceries);
+</script>
+
+</body>
+</html>
