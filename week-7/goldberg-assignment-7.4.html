@@ -1,0 +1,70 @@
+<!--
+============================================
+; Title: Assignment 7.4
+; Author: Mike Goldberg
+; Date: 01/24/2020
+; Modified By: Mike Goldberg
+; Description: Inline JavaScript Functions
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 7.3</title>
+
+  <link rel="stylesheet" href="../site.css">
+</head>
+
+<body>
+<h1>Computer Components</h1>
+
+<table id="table"></table>
+<script>
+  // variable declaration
+  var compSetUp = [
+    new equipmentItem("1", "Laptop", "$2,500"),
+    new equipmentItem("2", "Monitor", "$800"),
+    new equipmentItem("3", "hdmi Cable", "$25"),
+    new equipmentItem("4", "Mouse", "$99"),
+    new equipmentItem("5", "Keyboard", "$150"),
+  ]
+
+  /**
+   * Params: id, name, amount, options
+   * Response: void
+   * Description: set the id, name, price, and options of a computer component
+   */
+    function equipmentItem(id, name, amount, options) {
+      this.id = id;
+      this.name = name;
+      this.amount = amount;
+      this.edit = `<a href="javaScript: alert(${id});">EDIT</a>`;
+      this.confirm = `<a href="javascript:confirm('Are you sure');">DELETE</a>`;
+    }
+
+  // function that creates a table row for each item an array
+  function generateTable(array) {
+    var table = document.getElementById("table");
+    var tableBody = [];
+    table.innerHTML = "<thead><tr><th>Id</th><th>Name</th><th>Amount</th><th>Functions</th></tr></thead>";
+
+    // Make an array of table rows containing id and grocery item
+    var id = 0;
+    array.forEach((item) => {
+      id++;
+      tableBody.push(`<tr><td>${item.id}</td><td>${item.name}</td><td>${item.amount}</td><td>${item.edit} | ${item.confirm}</td></tr>`);
+    });
+    // combine rows into a single string
+    var combined = tableBody.join("");
+    // insert string into table
+    table.insertAdjacentHTML("beforeend", combined);
+  }
+
+  // run function
+  generateTable(compSetUp);
+</script>
+
+</body>
+</html>
