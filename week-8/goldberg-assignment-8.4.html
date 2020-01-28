@@ -1,0 +1,98 @@
+<!--
+============================================
+; Title: Assignment 8.4
+; Author: Mike Goldberg
+; Date: 01/27/2020
+; Modified By: Mike Goldberg
+; Description: Putting it all together
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 8.4</title>
+
+  <link rel="stylesheet" href="../site.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <style type="text/css">
+    body {
+      font-family: 'Roboto', sans-serif;
+      padding: 0 20px;
+    }
+    h2 {
+      border-bottom: 3px solid red;
+      margin-bottom: 20px;
+    }
+    tr:hover { background-color: yellow; }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <div id="officeTeam"></div>
+
+<script>
+  // variable declaration
+  let officeTeam = [
+    new Employee("1234", "Michael", "Scott", "Regional Manager"),
+    new Employee("1235", "Dwight", "Schrute", "Assistant to the Regional Manager"),
+    new Employee("1236", "Jim", "Halpert", "Sales"),
+    new Employee("1237", "Pam", "Beesly", "Receptionist"),
+    new Employee("1238", "Creed", "Bratton", "Not Really Sure?")
+  ];
+
+  /**
+   * Params: id, first name, last name, title
+   * Response: void
+   * Description: set the id, full name, and title of an employee
+   */
+  function Employee(id, firstName, lastName, title) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.title = title;
+  }
+
+  // loop through array to get id and type
+  var output = "<h2>Employee Listing</h2><table><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Title</th>";
+  for (var x = 0; x < officeTeam.length; x++) {
+    output += "<tr><td class='id'>" +
+      officeTeam[x].id +
+      "</td><td>" +
+      officeTeam[x].firstName +
+      "</td><td>" +
+      officeTeam[x].lastName +
+      "</td><td>" +
+      officeTeam[x].title +
+      "</td></tr>";
+  }
+  output += "</table>";
+  // render a table
+  document.getElementById("officeTeam").innerHTML = output;
+
+  //initialize jQuery
+  $(function () {
+    // on click, find related associate data
+    $("#officeTeam td").click(function() {
+      var thisID = $(this).closest("tr").find(".id").html();
+      const getEmployee = officeTeam.find(({ id }) => id == thisID);
+      // alert data to user
+      alert(
+        getEmployee.id +
+        " " +
+        getEmployee.firstName +
+        " " +
+        getEmployee.lastName +
+        " " +
+        getEmployee.title
+      );
+    });
+  });
+
+</script>
+
+</body>
+</html>
