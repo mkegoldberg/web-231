@@ -1,0 +1,83 @@
+<!--
+============================================
+; Title: Assignment 8.3
+; Author: Mike Goldberg
+; Date: 01/27/2020
+; Modified By: Mike Goldberg
+; Description: jQuery
+;===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 8.3</title>
+
+  <link rel="stylesheet" href="../site.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <style type="text/css">
+    body {
+      font-family: 'Roboto', sans-serif;
+      padding: 0 20px;
+    }
+    h2 {
+      border-bottom: 3px solid red;
+      margin-bottom: 20px;
+    }
+    td.id { cursor: pointer; width: 2.5rem }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+  <h2>My Paragraph</h2>
+  <p class="my-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <button class="toggle">Toggle</button>
+</div>
+
+<div id="fruits"></div>
+
+<script>
+  const fruits = [
+    { id: 1, type: "banana" },
+    { id: 2, type: "strawberry" },
+    { id: 3, type: "kiwi" },
+    { id: 4, type: "mango" },
+    { id: 5, type: "watermelon" },
+  ]
+
+  // loop through array to get id and type
+  var output = "<h2>Fruits</h2><table><tr><th>ID</th><th>TYPE</th>";
+  for (var x = 0; x < fruits.length; x++) {
+    output += "<tr><td class='id'>" + fruits[x].id + "</td><td>" + fruits[x].type + "</td></tr>";
+  }
+  output += "</table>";
+  // render a table
+  document.getElementById("fruits").innerHTML = output;
+
+  //initialize jQuery
+  $(function () {
+
+    // function to add toggle the visibility of the paragraph
+    $("button.toggle").click(function () {
+      $(".my-paragraph").toggle();
+    });
+
+    $("#fruits td.id").click(function() {
+      var thisID = $(this).html();
+      const match = fruits.find(({ id }) => id == thisID);
+      alert("ID: " + match.id + ", Type: " + match.type);
+    });
+  });
+
+</script>
+
+</body>
+</html>
